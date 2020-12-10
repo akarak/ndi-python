@@ -6,7 +6,9 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 
 set(PYBIND11_CPP_STANDARD -std=c++17)
 
-add_subdirectory("lib/pybind11")
+find_package(Python COMPONENTS Interpreter Development)
+set(pybind11_DIR ${Python_SITELIB}/pybind11/share/cmake/pybind11)
+find_package(pybind11 CONFIG)
 
 find_package(NDI REQUIRED)
 
